@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import { Provider } from 'react-redux'
 import rootReducer from './api/reducers'
 import rootSaga from './api/sagas'
@@ -12,7 +13,11 @@ const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
 const store = createStore(
   rootReducer,
-  applyMiddleware(sagaMiddleware)
+  composeWithDevTools(
+    applyMiddleware(
+        sagaMiddleware,
+    )
+)
 )
 
 // then run the saga
