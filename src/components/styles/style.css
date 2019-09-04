@@ -49,6 +49,32 @@
     border-radius: 30px;
 }
 
+.partyContainer {
+    background-color: #6441a4;
+    height: 100vh;
+    width: 100vw;
+}
+
+.partyVideoPlayerContainer {
+}
+
+.player-wrapper {
+    position: relative;
+     padding-top: 56.25%; /*Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.partyNavBarContainer {
+    height: 40px;
+    padding: 5px;
+    background-color: rgb(77, 48, 131);
+}
+
 .gooey {
     position: absolute;
     top: 75%;
@@ -131,8 +157,7 @@
 }
 
 .area {
-    /* background: #4c00a3;  
-    background: -webkit-linear-gradient(to left, #5800bd, #6900e0);   */
+    background: #6441a4;
     width: 100%;
     height: 100vh;
 }

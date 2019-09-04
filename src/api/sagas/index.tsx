@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import * as actions from "../actions";
 import { eventChannel } from "redux-saga";
 import party from './party';
+import player from './player';
 
 export interface socketResponse {
     type;
@@ -77,6 +78,7 @@ export default function* root() {
     yield all([
         fork(createSocketChannel, socket),
         fork(watchSocketChannel, socket),
-        fork(party, socket)
+        fork(party, socket),
+        fork(player, socket)
     ]);
 }

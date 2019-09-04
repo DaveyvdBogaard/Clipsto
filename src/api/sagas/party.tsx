@@ -23,8 +23,7 @@ function* watchJoinParty(socket) {
     while (true) {
         const { eventName, payload } = yield take(actions.JOIN_PARTY);
         socket.emit("joinParty", {
-            id: payload.order.id,
-            processingStatus: payload.order.processingStatus
+            code: payload.code
         });
     }
 }
@@ -37,6 +36,10 @@ function listenPartyEvents(socket) {
         };
 
         socket.on("partyCreated", (response) => emit({ type: actions.PARTY_CREATED, data: response }));
+        socket.on('partyJoined', (response) => emit({ type: actions.PARTY_JOINED, data: response}));
+        socket.on('memberJoined', (response) => emit({ type: actions.MEMBER_JOINED, data: response}));
+        socket.on('newMessage', (response) => emit({ type: actions.NEW_MESSAGE, data: response}));
+        socket.on('memberLeft', (response) => emit({ type: actions.MEMBER_LEFT, data: response}));
 
         const unsubscribe = () => {
             // socket.off("message", eventHandler);
