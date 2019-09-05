@@ -1,9 +1,8 @@
 import {
     CLIP_PAUSED,
     CLIP_PLAYED,
-    PLAY_CLIP,
-    PAUSE_CLIP,
-    PLAYPAUSE_CLIP
+    PLAYPAUSE_CLIP,
+    CLIP_PLAYEDPAUSED
 } from "../actions";
 import { produce } from "immer";
 
@@ -31,17 +30,7 @@ const clipPlayerState = (state = defaultState, action): ClipPlayerState => {
         case CLIP_PLAYED:
             return produce(state, draftState => {
                 draftState.isPlaying = true;
-            })
-
-        case PLAY_CLIP:
-            return produce(state, draftState => {
-                draftState.isPlaying = true;
-            })
-        
-        case PAUSE_CLIP:
-            return produce(state, draftState => {
-                draftState.isPlaying = false;
-            })
+            });
         
         case PLAYPAUSE_CLIP:
             return produce(state, draftState => {
@@ -50,6 +39,11 @@ const clipPlayerState = (state = defaultState, action): ClipPlayerState => {
                 } else {
                     draftState.isPlaying = true;
                 }
+            })
+
+        case CLIP_PLAYEDPAUSED:
+            return produce(state, draftState => {
+                draftState.isPlaying = action.data.data.data.playing;
             })
 
         default:

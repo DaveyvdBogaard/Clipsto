@@ -17,13 +17,15 @@ export const LEAVE_PARTY = 'LEAVE_PARTY';
 export const PARTY_LEFT = 'PARTY_LEFT';
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const NEW_MESSAGE = 'NEW_MESSAGE';
+export const ADD_CLIP = 'ADD_CLIP';
+export const CLIP_ADDED = 'CLIP_ADDED';
+// TODO new action
 
 //CLIP
-export const PLAY_CLIP = 'PLAY_CLIP';
 export const CLIP_PLAYED = 'CLIP_PLAYED';
-export const PAUSE_CLIP = 'PAUSE_CLIP';
 export const CLIP_PAUSED = 'CLIP_PAUSED';
 export const PLAYPAUSE_CLIP = 'PLAYPAUSE_CLIP';
+export const CLIP_PLAYEDPAUSED = 'CLIP_PLAYEDPAUSED';
 export const SKIP_CLIP = 'SKIP_CLIP';
 export const CLIP_SKIPPED = 'CLIP_SKIPPED';
 export const CHANGE_CLIPTIME = 'CHANGE_CLIPTIME';
@@ -38,10 +40,5 @@ export const joinParty = (event, payload) => action(JOIN_PARTY, {event, payload}
 export const createParty = (event, payload) => action(CREATE_PARTY, {event, payload});
 
 export const playPauseClip = (event, payload) => action(PLAYPAUSE_CLIP, {event, payload});
-
-// TODO delete playClip and pauseClip completely
-export const playClip = (event, payload) => action(PLAY_CLIP, {event, payload});
-export const pauseClip = (event, payload) => action(PAUSE_CLIP, {event, payload});
-
 export const skipClip = (event, payload) => action(SKIP_CLIP, {event, payload});
 export const changeClipTime = (event, payload) => action(CHANGE_CLIPTIME, {event, payload});

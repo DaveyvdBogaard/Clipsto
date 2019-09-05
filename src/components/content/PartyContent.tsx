@@ -24,7 +24,7 @@ class PartyContent extends React.Component<any> {
                 <div className="partyTabContainer">
                     <Tabs type="card">
                         <TabPane tab="Search" key="1">
-                            <div className="partySearchContainer">Search</div>
+                            <div className="partySearchContainer">{this.props.party.party.code}</div>
                         </TabPane>
                         <TabPane tab="Chat" key="2">
                             <div className="partyChatContainer">Chat</div>

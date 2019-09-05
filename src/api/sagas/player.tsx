@@ -12,7 +12,8 @@ export interface socketResponse {
 function* watchPlayPauseClip(socket) {
     while (true) {
         const { eventName, payload } = yield take(actions.PLAYPAUSE_CLIP);
-        socket.emit("playPauseClip", {partyid: payload.partyId});
+        console.log(payload)
+        socket.emit("playPauseClip", {partyid: payload.id});
     }
 }
 
@@ -24,7 +25,8 @@ function listenPlayerEvents(socket) {
         };
 
         socket.on("clipPaused", (response) => emit({ type: actions.CLIP_PAUSED, data: response }));
-        socket.on('clipPlayed', (response) => emit({ type: actions.CLIP_PLAYED, data: response }))
+        socket.on('clipPlayed', (response) => emit({ type: actions.CLIP_PLAYED, data: response }));
+        socket.on('clipPlayedPaused', (response) => emit({ type: actions.CLIP_PLAYEDPAUSED, data: response }));
 
         const unsubscribe = () => {
             // socket.off("message", eventHandler);
@@ -49,6 +51,9 @@ function* watchPlayerEvents(socket) {
                 
                 case actions.CLIP_PLAYED:
                     yield put({type: actions.CLIP_PLAYED, data: response.data});
+
+                case actions.CLIP_PLAYEDPAUSED:
+                    yield put({type: actions.CLIP_PLAYEDPAUSED, data: response});
 
                 default:
                     yield put(response);

@@ -12,9 +12,6 @@ export interface socketResponse {
 function* watchCreateParty(socket) {
     while (true) {
         const { eventName, payload } = yield take(actions.CREATE_PARTY);
-        // socket.emit("createParty", {}, (response) => {
-        //     yield put({ type: actions.PARTY_CREATED, data: response});
-        // });
         socket.emit("createParty");
     }
 }
