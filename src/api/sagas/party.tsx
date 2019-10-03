@@ -59,6 +59,10 @@ function* watchPartyEvents(socket) {
                     yield put({type: actions.PARTY_CREATED, data: response.data});
                     break;
 
+                case actions.PARTY_JOINED:
+                    yield put({type: actions.PARTY_JOINED, data: response.data });
+                    break;
+
                 default:
                     yield put(response);
                     break;

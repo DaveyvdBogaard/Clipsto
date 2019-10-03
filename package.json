@@ -15,6 +15,7 @@
     "react-player": "^1.12.0",
     "react-redux": "^7.1.0",
     "react-scripts": "2.1.8",
+    "react-tabs": "^3.0.0",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
     "socket.io-client": "^2.2.0",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "start": "PORT=3001 REACT_APP_SOCKET=http://localhost:9092 REACT_APP_SERVERAPI=http://localhost:3000 react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_SERVERURL=http://api.clipsto.tk react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

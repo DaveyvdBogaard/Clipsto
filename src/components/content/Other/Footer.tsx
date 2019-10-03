@@ -1,8 +1,8 @@
 import * as React from "react";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
-import "../styles/style.css";
-import "../styles/loading.css";
+import "../../styles/style.css";
+import "../../styles/loading.css";
 import { Grid, Row, Col } from "react-flexbox-grid";
 
 class Footer extends React.Component<any> {

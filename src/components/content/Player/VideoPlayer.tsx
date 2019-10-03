@@ -1,12 +1,12 @@
 import * as React from "react";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
-import "../styles/style.css";
-import "../styles/loading.css";
+import "../../styles/style.css";
+import "../../styles/loading.css";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import ReactPlayer from "react-player";
-import testClip from "../../shared/data/clip1.mp4";
-import { playPauseClip } from "../../api/actions";
+import testClip from "../../../shared/data/clip1.mp4";
+import { playPauseClip } from "../../../api/actions";
 import { Button, Icon, Slider } from "antd";
 
 class VideoPlayer extends React.Component<any> {
@@ -19,7 +19,8 @@ class VideoPlayer extends React.Component<any> {
         played: 0,
         seeking: false,
         playedSeconds: 0,
-        seekSeconds: 0
+        seekSeconds: 0,
+        controlsVisible: false
     };
 
     handlePlayPause = () => {
@@ -70,6 +71,19 @@ class VideoPlayer extends React.Component<any> {
         }
     };
 
+    handleControls = e => {
+        console.log(this.state.controlsVisible);
+        if (this.state.controlsVisible) {
+            this.setState({
+                controlsVisible: false
+            });
+        } else {
+            this.setState({
+                controlsVisible: true
+            });
+        }
+    };
+
     isPlayingIcon = () => {
         if (this.props.player.isPlaying) {
             return (
@@ -113,7 +127,12 @@ class VideoPlayer extends React.Component<any> {
     render() {
         return (
             <div>
-                <div className="player-wrapper">
+                <div
+                    className="player-wrapper"
+                    onClick={this.handleControls}
+                    onMouseEnter={this.handleControls}
+                    onMouseLeave={this.handleControls}
+                >
                     <ReactPlayer
                         className="react-player"
                         ref={this.ref}
@@ -137,33 +156,43 @@ class VideoPlayer extends React.Component<any> {
                             }
                         }}
                     ></ReactPlayer>
-                    {/* TODO Create a alternate solution that doesnt use the inline controls */}
                 </div>
                 <div className="playerControlsContainer">
-                    <Row style={{marginLeft: 0, marginRight: 0}}>
-                        <Col xs={2}>
-                            {/* <Button className="playerControlsContainerButton" onClick={this.handlePlayPause.bind(this, {})}>{this.isPlayingIcon()}</Button> */}
-                            <div
-                                className="playerControlsContainerButton"
-                                onClick={this.handlePlayPause.bind(this, {})}
-                            >
-                                {this.isPlayingIcon()}
-                            </div>
-                        </Col>
-                        <Col xs={8}>
-                            <div
-                            onMouseDown={this.handleSeekMouseDown}
-                            onMouseUp={this.handleSeekMouseUp}
-                            >
-                                <Slider
-                                    max={this.state.duration}
-                                    value={this.state.playedSeconds}
-                                    // onMouseDown={this.handleSeekMouseDown}
-                                    onChange={this.handleSeekChange}
-                                    // onMouseUp={this.handleSeekMouseUp}
-                                ></Slider>
-                            </div>
-                            {/* <input
+                    {this.state.controlsVisible ? (
+                        <Row
+                            style={{
+                                marginLeft: 0,
+                                marginRight: 0,
+                                alignContent: "center"
+                            }}
+                        >
+                            <Col xs={2}>
+                                {/* <Button className="playerControlsContainerButton" onClick={this.handlePlayPause.bind(this, {})}>{this.isPlayingIcon()}</Button> */}
+                                <div
+                                    className="playerControlsContainerButton"
+                                    onClick={this.handlePlayPause.bind(
+                                        this,
+                                        {}
+                                    )}
+                                >
+                                    {this.isPlayingIcon()}
+                                </div>
+                            </Col>
+                            <Col xs={8}>
+                                <div
+                                    onMouseDown={this.handleSeekMouseDown}
+                                    onMouseUp={this.handleSeekMouseUp}
+                                >
+                                    <Slider
+                                        max={this.state.duration}
+                                        value={this.state.playedSeconds}
+                                        // onMouseDown={this.handleSeekMouseDown}
+                                        onChange={this.handleSeekChange}
+                                        // onMouseUp={this.handleSeekMouseUp}
+                                        step={0.1}
+                                    ></Slider>
+                                </div>
+                                {/* <input
                                 type="range"
                                 min={0}
                                 max={this.state.duration}
@@ -173,17 +202,21 @@ class VideoPlayer extends React.Component<any> {
                                 onChange={this.handleSeekChange}
                                 onMouseUp={this.handleSeekMouseUp}
                             /> */}
-                        </Col>
-                        <Col xs={2}>
-                            {/* <Button>{this.isMutedIcon()}</Button>   */}
-                            <div
-                                className="playerControlsContainerButton"
-                                onClick={this.handleMute.bind(this, {})}
-                            >
-                                {this.isMutedIcon()}
-                            </div>
-                        </Col>
-                    </Row>
+                            </Col>
+                            <Col xs={2}>
+                                {/* <Button>{this.isMutedIcon()}</Button>   */}
+                                <div
+                                    className="playerControlsContainerButton"
+                                    onClick={this.handleMute.bind(this, {})}
+                                >
+                                    {this.isMutedIcon()}
+                                </div>
+                            </Col>
+                        </Row>
+                    ) : (
+                        <div />
+                    )}
+
                     {/* <Button style={{width: '10vw'}} onClick={this.handlePlayPause.bind(this, {})}>{this.isPlayingIcon()}</Button>
                     <Slider style={{width: '80vw'}}></Slider>
                     <Button style={{width: '10vw'}}>{this.isMutedIcon()}</Button>   */}

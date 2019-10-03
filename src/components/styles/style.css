@@ -58,9 +58,49 @@
 .partyVideoPlayerContainer {
 }
 
+.partyTabsContainer {
+    height: 50px;
+    background-color: #573792;
+    overflow: hidden;
+}
+
+.partyTab {
+    height: 50px;
+    width: 50vw;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.tabContentContainer {
+    flex-grow: 1;
+}
+
+.chatContainer {
+    width: 100%;
+    background-color: white;
+}
+
+.chatTypeMessageContainer {
+    background-color: #6441a4;
+    height: 100px;
+    padding: 25px;
+}
+
+.chatMessagesContainer {
+    height: 400px;    
+    background-color: white;
+}
+
+.partyVideoPlayerContainer {
+    position: relative;
+}
+
 .player-wrapper {
     position: relative;
-     padding-top: 56.25%; /*Player ratio: 100 / (1280 / 720) */
+    padding-top: 56.25%; /*Player ratio: 100 / (1280 / 720) */
 }
 
 .react-player {
@@ -70,9 +110,12 @@
 }
 
 .playerControlsContainer {
-    background-color: black;
-    padding: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
+    background-color: rgba(red, green, blue, 0.1)
 }
 
 .playerControlsContainerButton {
