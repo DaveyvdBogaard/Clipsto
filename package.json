@@ -7,14 +7,24 @@
     "@types/node": "11.11.3",
     "@types/react": "16.8.8",
     "@types/react-dom": "16.8.2",
+    "antd": "^3.15.0",
+    "immer": "^3.2.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-flexbox-grid": "^2.1.2",
+    "react-player": "^1.12.0",
+    "react-redux": "^7.1.0",
     "react-scripts": "2.1.8",
+    "react-tabs": "^3.0.0",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.0.5",
+    "socket.io-client": "^2.2.0",
+    "string-to-color": "^2.1.1",
     "typescript": "3.3.3333"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "PORT=3001 REACT_APP_SOCKET=http://localhost:9092 REACT_APP_SERVERAPI=http://localhost:3000 react-scripts start",
+    "build": "REACT_APP_SERVERURL=http://api.clipsto.tk react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -26,5 +36,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8"
+  }
 }

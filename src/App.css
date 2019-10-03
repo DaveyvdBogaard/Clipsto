@@ -16,7 +16,13 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(142, 0, 170);
+}
+
+.mainContainer {
+  /* background-color: rgb(125, 3, 150); */
+  /* width: 100vw;
+  height: 100vh; */
 }
 
 .App-link {
