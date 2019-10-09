@@ -23,7 +23,7 @@
     "typescript": "3.3.3333"
   },
   "scripts": {
-    "start": "PORT=3001 REACT_APP_SOCKET=http://localhost:9092 REACT_APP_SERVERAPI=http://localhost:3000 react-scripts start",
+    "start": "PORT=3001 REACT_APP_SERVERURL=https://localhost:3000 react-scripts start",
     "build": "REACT_APP_SERVERURL=http://api.clipsto.tk react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

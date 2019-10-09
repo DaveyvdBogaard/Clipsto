@@ -72,7 +72,7 @@ export default function* root() {
     yield put({ type: actions.WEBSOCKET_CONNECTING });
     const socket = yield call(
         createSocketConnection,
-        process.env.REACT_APP_SOCKET
+        process.env.REACT_APP_SERVERURL
     );
 
     yield all([
