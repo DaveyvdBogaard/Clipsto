@@ -75,6 +75,7 @@
 }
 
 .tabContentContainer {
+    padding: 10px;
 }
 
 .tabNavigator {
@@ -116,9 +117,49 @@
 
 .searchClipsContainer {
     width: 100%;
-    height: 50vh;
-    margin-bottom: 80px;
-    background-color: white;
+    height: 100%;
+}
+
+.filterSearchContainer {
+    width: 100%;
+    height: 10%;
+}
+
+.clipsContainer {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+    flex-wrap: wrap;
+}
+
+.clip {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #5f5ffc;
+    width: 150px;
+    height: 150px;
+    flex-grow: 1;
+    max-width: 45vw;
+    margin: 10px;
+    position: relative;
+    /* background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(255,255,255,1)); */
+}
+
+.addButton {
+    width: 30px;
+    height: 30px;
+    float: right;
+    padding-top: 3px;
+    padding-left: 3px;
+    border-radius: 100%;
+    background-color: #fcfcfd;
+}
+
+.clipInfo {
+    position: absolute;
+    bottom: 0;
+    color: #fcfcfd;
 }
 
 .partyVideoPlayerContainer {
