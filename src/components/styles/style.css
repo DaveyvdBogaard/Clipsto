@@ -50,7 +50,7 @@
 }
 
 .partyContainer {
-    background-color: #6441a4;
+    background-color: #5f5ffc;
     height: 100vh;
     width: 100vw;
 }
@@ -75,7 +75,27 @@
 }
 
 .tabContentContainer {
+}
+
+.tabNavigator {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px 50px 0px 0px; 
+    background-color: #fcfcfd;
+    position: fixed;
+    bottom: 21px;
+    padding-left: 35px;
+    padding-top: 15px;
+    padding-right: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.navButton {
     flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .chatContainer {
@@ -91,6 +111,13 @@
 
 .chatMessagesContainer {
     height: 400px;    
+    background-color: white;
+}
+
+.searchClipsContainer {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 80px;
     background-color: white;
 }
 

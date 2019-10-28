@@ -5,20 +5,25 @@ import "../styles/style.css";
 import "../styles/loading.css";
 import VideoPlayer from "./Player/VideoPlayer";
 import ChatWindow from "./Chat/ChatWindow";
+import { Search, Menu, MessageCircle, Info, PlusSquare, LogOut } from 'react-feather';
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { runInThisContext } from "vm";
+import QueueWindow from "./Queue/QueueWindow";
+import SearchClipsWindow from "./SearchClips/SearchClipsWindow";
+import InfoWindow from "./Info/InfoWindow";
 
 class PartyContent extends React.Component<any> {
     state = {
-        selectedTab: "Search"
+        selectedTab: "SearchClips"
     };
 
     getTabSelected = tab => {
         if (this.state.selectedTab === tab) {
-            return "#402279";
+            return "#5f5ffc";
         } else {
-            return "#573792";
+            return "#242431";
         }
     };
 
@@ -29,6 +34,16 @@ class PartyContent extends React.Component<any> {
     };
 
     getTabContent = () => {
+        switch (this.state.selectedTab) {
+            case 'Chat':
+                return <ChatWindow />
+            case 'Queue':
+                return <QueueWindow />
+            case 'SearchClips':
+                return <SearchClipsWindow />
+            case 'Info':
+                return <InfoWindow />
+        }
         if (this.state.selectedTab === 'Chat') {
             return <ChatWindow />
         } else {
@@ -47,49 +62,25 @@ class PartyContent extends React.Component<any> {
                 <div className="partyVideoPlayerContainer">
                     <VideoPlayer />
                 </div>
-                <div className="partyTabsContainer">
-                    <div
-                        className="partyTab"
-                        style={{
-                            backgroundColor: this.getTabSelected("Search")
-                        }}
-                        onClick={this.onTabChange.bind(this, "Search")}
-                    >
-                        Search
-                    </div>
-                    <div
-                        className="partyTab"
-                        style={{ backgroundColor: this.getTabSelected("Chat") }}
-                        onClick={this.onTabChange.bind(this, "Chat")}
-                    >
-                        Chat
-                    </div>
-                    {/* <Tabs>
-                        <TabList>
-                            <Tab>Title 1</Tab>
-                            <Tab>Title 2</Tab>
-                        </TabList>
-
-                        <TabPanel>
-                            <h2>Any content 1</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 2</h2>
-                        </TabPanel>
-                    </Tabs> */}
-                    {/* <Tabs type="card" style={{marginBottom: 0}}>
-                        <TabPane tab="Search" key="1" style={{marginBottom: 0}}>
-                            <div className="partySearchContainer">{this.props.party.party.code}</div>
-                        </TabPane>
-                        <TabPane tab="Chat" key="2" style={{marginBottom: 0}}>
-                            <div className="partyChatContainer">
-                                <ChatWindow />
-                            </div>
-                        </TabPane>
-                    </Tabs>                    */}
-                </div>
                 <div className="tabContentContainer">
                     {this.getTabContent()}
+                </div>
+                <div className="tabNavigator">
+                    <div className="navButton" onClick={this.onTabChange.bind(this, 'Queue')}>
+                        <Menu color={this.getTabSelected('Queue')}/>
+                    </div>
+                    <div className="navButton" onClick={this.onTabChange.bind(this, 'Chat')}>
+                        <MessageCircle color={this.getTabSelected('Chat')}/>
+                    </div>
+                    <div className="navButton" onClick={this.onTabChange.bind(this, 'SearchClips')}>
+                        <PlusSquare color={this.getTabSelected('SearchClips')}/>
+                    </div>
+                    <div className="navButton" onClick={this.onTabChange.bind(this, 'Info')}>
+                        <Info color={this.getTabSelected('Info')}/>
+                    </div>
+                    <div className="navButton">
+                        <LogOut />
+                    </div>
                 </div>
             </div>
         );
