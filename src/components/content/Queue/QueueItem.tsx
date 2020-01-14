@@ -22,8 +22,6 @@ class QueueItem extends React.Component<any> {
             backgroundImage: `url(${this.props.clip.thumbnail_url})`
           }}
         >
-          {/* <p style={{color: "#FCFCFD"}}>{this.props.index}</p> */}
-          {/* picture with diagonal cut for esthetics */}
         </div>
         <div className="queueInfo">
           <p
@@ -40,13 +38,10 @@ class QueueItem extends React.Component<any> {
           <p style={{marginBottom: 0, fontSize: "12px"}}>
             {this.props.clip.broadcaster_name}
           </p>
-          {/* name + creator */}
         </div>
         <div className="queueButtons">
           <div style={{alignSelf: "center", height: "30px", marginRight: "2px"}}><Play color="#FCFCFD" size="30px"/></div>
           <div style={{alignSelf: "center", height: "30px"}}><Trash2 color="#FCFCFD" size="30px"/></div>
-          
-          {/* icons: play and remove */}
         </div>
       </div>
     );
