@@ -2,8 +2,7 @@ import * as React from "react";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
 import "../../styles/style.css";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import { Input, Button } from "antd";
+import { Divider } from "antd";
 
 class InfoWindow extends React.Component<any> {
     state = {
@@ -12,8 +11,12 @@ class InfoWindow extends React.Component<any> {
 
     render() {
         return (
-            <div>
-                
+            <div className="infoContainer">
+                <h3>Code</h3>
+                <Divider />
+                <p>
+                    {this.props.party.party.code}
+                </p>
             </div>
         );
     }
