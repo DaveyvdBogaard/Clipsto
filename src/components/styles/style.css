@@ -126,7 +126,7 @@
 }
 
 .chatInputContainer {
-  flex-grow: 5;
+  flex: 5;
   background-color: #fcfcfd;
   border: #5f5ffc 2px solid;
   padding: 5px 10px;
@@ -140,7 +140,7 @@
 }
 
 .chatSendContainer {
-  flex-grow: 1;
+  flex: 1;
   background-color: #5f5ffc;
   padding: 5px;
   border-radius: 20px;
@@ -150,8 +150,33 @@
 
 .chatMessagesContainer {
   background-color: #5f5ffc;
-  flex-grow: 6;
+  flex: 6;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 10px;
+}
+
+.chatMessageItem {
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.memberMessage {
+  background-color: #dfdfdf;
+  align-self: flex-start;
+}
+
+.serverMessage {
+  background-color: aquamarine;
+}
+
+.clientMessage {
+  background-color: #fcfcfd;
+  align-self: flex-end;
 }
 
 .queueContainer {

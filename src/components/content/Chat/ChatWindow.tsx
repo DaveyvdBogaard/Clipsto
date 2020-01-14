@@ -5,14 +5,19 @@ import "../../styles/style.css";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { Input, Button } from "antd";
 import { ArrowUp } from "react-feather";
+import MessageItem from "./MessageItem";
+import * as messageData from "../../../shared/data/fakeMessages.json";
 
 class ChatWindow extends React.Component<any> {
   state = {
-    message: ""
+    messages: messageData.data
   };
 
   loadMessages = () => {
-    return <div></div>;
+    console.log(this.state.messages)
+    return this.state.messages.map((message, index) => {
+      return <MessageItem message={message} key={index}/>;
+    });
   };
 
   render() {
