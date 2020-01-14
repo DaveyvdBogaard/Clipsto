@@ -50,7 +50,7 @@
 }
 
 .partyContainer {
-    background-color: #5f5ffc;
+    background-color: #fcfcfd;
     height: 100vh;
     width: 100vw;
 }
@@ -75,29 +75,36 @@
 }
 
 .tabContentContainer {
-    padding: 10px;
+    padding: 5px 10px 5px 10px;
 }
 
 .tabNavigator {
     width: 100%;
     height: 50px;
     border-radius: 50px 50px 0px 0px; 
-    background-color: #fcfcfd;
+    background-color: #5F5FFC;
     position: fixed;
-    bottom: 21px;
+    bottom: 0;
     padding-left: 35px;
-    padding-top: 15px;
     padding-right: 35px;
     display: flex;
     justify-content: center;
 }
 
 .navButton {
-    flex-grow: 1;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    align-self: center;
+    width: 35px;
+    height: 35px;
+    padding-top: 5px;
 }
+
+.navButtonSelected {
+    background-color: #362968;
+    border-radius: 100%;
+} 
 
 .chatContainer {
     width: 100%;
@@ -128,7 +135,7 @@
 .clipsContainer {
     display: flex;
     width: 100%;
-    height: 90%;
+    height: 100%;
     overflow: auto;
     flex-wrap: wrap;
 }
@@ -139,11 +146,9 @@
     background-color: #5f5ffc;
     width: 150px;
     height: 150px;
-    flex-grow: 1;
-    max-width: 45vw;
-    margin: 10px;
+    margin: 5px;
     position: relative;
-    /* background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(255,255,255,1)); */
+    flex-grow: 1;
 }
 
 .addButton {

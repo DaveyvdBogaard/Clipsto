@@ -12,17 +12,10 @@ class SearchClipsWindow extends React.Component<any> {
                 <Clip clip={clip} key={index}/>
             )
         }))
-        // return (
-        //     <p>123</p>
-        // )
     }
     render() {
         return (
             <div className="searchClipsContainer">
-                <div className="filterSearchContainer">
-                    <button></button>
-                    <input></input>
-                </div>
                 <div className="clipsContainer">
                     {this.loadClips()}
                 </div>

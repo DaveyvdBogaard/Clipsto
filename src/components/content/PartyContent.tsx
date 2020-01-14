@@ -13,10 +13,7 @@ import {
   PlusSquare,
   LogOut
 } from "react-feather";
-
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { runInThisContext } from "vm";
 import QueueWindow from "./Queue/QueueWindow";
 import SearchClipsWindow from "./SearchClips/SearchClipsWindow";
 import InfoWindow from "./Info/InfoWindow";
@@ -30,20 +27,16 @@ class PartyContent extends React.Component<any> {
   };
 
   componentDidMount() {
-    //todo fix hacky fix for div height
-    const contentHeight = window.innerHeight - this.videoContainer.clientHeight - 80;
-    console.log(contentHeight);
+    const contentHeight =
+      window.innerHeight - this.videoContainer.clientHeight - 38;
     this.setState({ contentHeight });
   }
 
-  // contentContainerHeight = window.innerHeight - document.getElementById('videoContainer').clientHeight;
-  // contentContainerHeight = document.getElementById('body').clientHeight - document.getElementById('videoContainer').clientHeight;
-
   getTabSelected = tab => {
     if (this.state.selectedTab === tab) {
-      return "#5f5ffc";
+      return " navButtonSelected";
     } else {
-      return "#242431";
+      return "";
     }
   };
 
@@ -92,30 +85,37 @@ class PartyContent extends React.Component<any> {
         >
           {this.getTabContent()}
         </div>
+
         <div className="tabNavigator">
           <div
-            className="navButton"
+            className={"navButton" + this.getTabSelected("Queue")}
             onClick={this.onTabChange.bind(this, "Queue")}
           >
-            <Menu color={this.getTabSelected("Queue")} />
+            <Menu color={"#FCFCFD"} />
           </div>
           <div
-            className="navButton"
+            className={"navButton" + this.getTabSelected("Chat")}
             onClick={this.onTabChange.bind(this, "Chat")}
           >
-            <MessageCircle color={this.getTabSelected("Chat")} />
+            <MessageCircle color={"#FCFCFD"} />
           </div>
           <div
-            className="navButton"
+            className={"navButton" + this.getTabSelected("SearchClips")}
             onClick={this.onTabChange.bind(this, "SearchClips")}
           >
-            <PlusSquare color={this.getTabSelected("SearchClips")} />
+            <PlusSquare color={"#FCFCFD"}/>
           </div>
           <div
-            className="navButton"
+            className={"navButton" + this.getTabSelected("Info")}
             onClick={this.onTabChange.bind(this, "Info")}
           >
-            <Info color={this.getTabSelected("Info")} />
+            {this.getTabSelected("Info") ? (
+              <div>
+                <Info color={"#FCFCFD"} />
+              </div>
+            ) : (
+              <Info color={"#FCFCFD"} />
+            )}
           </div>
           <div className="navButton">
             <LogOut />
@@ -135,7 +135,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PartyContent);
+export default connect(mapStateToProps, mapDispatchToProps)(PartyContent);

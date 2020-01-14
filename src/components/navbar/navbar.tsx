@@ -23,7 +23,7 @@ class Navbar extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="mail">
-          <Icon type="mail" />Navigation One
+          <Icon type="mail"/>Navigation One
         </Menu.Item>
         <Menu.Item key="app">
           <Icon type="appstore" />Navigation Two
