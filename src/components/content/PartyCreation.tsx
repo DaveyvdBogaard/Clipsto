@@ -7,6 +7,7 @@ import "../styles/style.css";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { createParty, joinParty } from "../../api/actions";
 import Loading from "../background/loading";
+import Footer from "./Other/Footer";
 
 class PartyCreation extends React.Component<any> {
     state = {
@@ -79,6 +80,7 @@ class PartyCreation extends React.Component<any> {
                         </div>
                     )}
                 </div>
+                <Footer />
                 <div>
                     {this.props.party.party !== null ? (
                         <div />

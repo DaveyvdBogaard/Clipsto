@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "sender": "1234",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:47.903Z"
+    },
+    {
+      "sender": "1234",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:48.903Z"
+    },
+    {
+      "sender": "me",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:49.903Z"
+    },
+    {
+      "sender": "server",
+      "data": {
+        "message": "User qeqwe joined"
+      },
+      "timestamp": "2020-01-14T22:31:50.903Z"
+    },
+    {
+      "sender": "me",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:51.903Z"
+    },
+    {
+      "sender": "1234",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:52.903Z"
+    },
+    {
+      "sender": "me",
+      "data": {
+        "message": "Wow this is cool!"
+      },
+      "timestamp": "2020-01-14T22:31:53.903Z"
+    }
+  ]
+}

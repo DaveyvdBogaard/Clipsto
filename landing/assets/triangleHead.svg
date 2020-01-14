@@ -1,0 +1,14 @@
+
+<svg width="838px" height="789px" viewBox="0 0 838 789" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="18.3392673%" y1="81.8708703%" x2="88.4044099%" y2="71.3276352%" id="linearGradient-1">
+            <stop stop-color="#5F5FFC" offset="0%"></stop>
+            <stop stop-color="#9898FE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Clipsto-Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-v5-Copy" transform="translate(-550.000000, -107.000000)" fill="url(#linearGradient-1)">
+            <path d="M966.84393,143.968293 L1268.62403,728.100586 C1293.97357,777.167734 1274.74666,837.494383 1225.67951,862.84393 C1211.49011,870.174597 1195.75126,874 1179.7801,874 L576.219902,874 C520.991427,874 476.219902,829.228475 476.219902,774 C476.219902,758.028842 480.045304,742.28999 487.375972,728.100586 L789.15607,143.968293 C814.505617,94.9011454 874.832266,75.6742308 923.899414,101.023777 C942.32011,110.540456 957.327251,125.547597 966.84393,143.968293 Z" id="Triangle-Copy-5" transform="translate(878.000000, 423.000000) scale(-1, -1) rotate(103.000000) translate(-878.000000, -423.000000) "></path>
+        </g>
+    </g>
+</svg>

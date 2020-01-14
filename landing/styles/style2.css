@@ -1,28 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-
-/* 
-Primary
-#5f5ffc
-Swatch 2
-#242431
-Swatch 3
-#fcfcfd
-Swatch 4
-#9699f8
-Swatch 5
-#c4c4fb 
-*/
-
-* {
+body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html {
   scroll-behavior: smooth;
+  background-color: #fcfcfd;
 }
 
 nav {
@@ -33,34 +17,31 @@ nav {
   z-index: 100;
   transition: background-color 0.4s ease-out;
 }
-
 nav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #fcfcfd;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
 }
-
 nav a:hover {
-  background: #ddd;
-  color: black;
+  background: #fcfcfd;
+  color: #000000;
+  border-radius: 48px;
 }
-
 nav div.navbar-right {
   float: right;
 }
-
 nav.scroll {
   background-color: #5f5ffc;
 }
 
 .watchButton {
-  background-color: #f2f2f2;
+  background-color: #5f5ffc;
   border: none;
-  color: black;
+  color: #ffffff;
+  font-size: 14px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -69,13 +50,18 @@ nav.scroll {
   cursor: pointer;
   border-radius: 16px;
 }
+.triangleHead {
+  position: absolute;
+  right: -59px;
+  top: -270px;
+}
 
 .headerContainer {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   /* background-color: rgb(104, 36, 168); */
-  background-color: #5f5ffc;
   position: relative;
+  overflow: hidden;
 }
 
 .headInfoContainer {
@@ -87,11 +73,26 @@ nav.scroll {
   margin-top: 30vh;
 }
 
+.leftHeadInfo {
+  float: left;
+}
+
+.rightHeadImage {
+  float: right;
+  border-radius: 48px;
+  padding: 10px;
+}
+@media screen and (max-width: 850px) {
+  .rightHeadImage {
+    visibility: hidden;
+  }
+}
+
 .downarrow {
   text-align: center;
   position: absolute;
   bottom: 0;
-  color: white;
+  color: #fcfcfd;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -102,7 +103,6 @@ nav.scroll {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
 }
 
 .infoItem {
@@ -116,8 +116,7 @@ nav.scroll {
 
 .infoGraphicsContainer {
   height: 1000px;
-  background-color: rgb(104, 36, 168);
+  background-color: #5f5ffc;
 }
 
-.footer {
-}
+/*# sourceMappingURL=style2.css.map */

@@ -5,107 +5,117 @@ import "../styles/style.css";
 import "../styles/loading.css";
 import VideoPlayer from "./Player/VideoPlayer";
 import ChatWindow from "./Chat/ChatWindow";
-
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Menu, MessageCircle, Info, PlusSquare, LogOut } from "react-feather";
 import "react-tabs/style/react-tabs.css";
+import QueueWindow from "./Queue/QueueWindow";
+import SearchClipsWindow from "./SearchClips/SearchClipsWindow";
+import InfoWindow from "./Info/InfoWindow";
 
 class PartyContent extends React.Component<any> {
-    state = {
-        selectedTab: "Search"
-    };
+  videoContainer: any;
 
-    getTabSelected = tab => {
-        if (this.state.selectedTab === tab) {
-            return "#402279";
-        } else {
-            return "#573792";
-        }
-    };
+  state = {
+    selectedTab: "SearchClips",
+    contentHeight: "50vh"
+  };
 
-    onTabChange = tab => {
-        this.setState({
-            selectedTab: tab
-        });
-    };
+  componentDidMount() {
+    const contentHeight =
+      window.innerHeight - this.videoContainer.clientHeight - 50;
+    this.setState({ contentHeight });
+  }
 
-    getTabContent = () => {
-        if (this.state.selectedTab === 'Chat') {
-            return <ChatWindow />
-        } else {
-            return <div />
-        }
+  getTabSelected = tab => {
+    if (this.state.selectedTab === tab) {
+      return " navButtonSelected";
+    } else {
+      return "";
     }
+  };
 
-    render() {
-        // Create two versions of this component (Mobile & Desktop)
-        return (
-            <div className="partyContainer">
-                {/*<div className="partyNavBarContainer">
-                     TODO add leave party button somewhere else 
-                    <Button className='classicButton' style={{height: '30px', width: 'inherit'}}>Leave Party</Button>
-                </div>*/}
-                <div className="partyVideoPlayerContainer">
-                    <VideoPlayer />
-                </div>
-                <div className="partyTabsContainer">
-                    <div
-                        className="partyTab"
-                        style={{
-                            backgroundColor: this.getTabSelected("Search")
-                        }}
-                        onClick={this.onTabChange.bind(this, "Search")}
-                    >
-                        Search
-                    </div>
-                    <div
-                        className="partyTab"
-                        style={{ backgroundColor: this.getTabSelected("Chat") }}
-                        onClick={this.onTabChange.bind(this, "Chat")}
-                    >
-                        Chat
-                    </div>
-                    {/* <Tabs>
-                        <TabList>
-                            <Tab>Title 1</Tab>
-                            <Tab>Title 2</Tab>
-                        </TabList>
+  onTabChange = tab => {
+    this.setState({
+      selectedTab: tab
+    });
+  };
 
-                        <TabPanel>
-                            <h2>Any content 1</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 2</h2>
-                        </TabPanel>
-                    </Tabs> */}
-                    {/* <Tabs type="card" style={{marginBottom: 0}}>
-                        <TabPane tab="Search" key="1" style={{marginBottom: 0}}>
-                            <div className="partySearchContainer">{this.props.party.party.code}</div>
-                        </TabPane>
-                        <TabPane tab="Chat" key="2" style={{marginBottom: 0}}>
-                            <div className="partyChatContainer">
-                                <ChatWindow />
-                            </div>
-                        </TabPane>
-                    </Tabs>                    */}
-                </div>
-                <div className="tabContentContainer">
-                    {this.getTabContent()}
-                </div>
-            </div>
-        );
+  getTabContent = () => {
+    switch (this.state.selectedTab) {
+      case "Chat":
+        return <ChatWindow />;
+      case "Queue":
+        return <QueueWindow />;
+      case "SearchClips":
+        return <SearchClipsWindow />;
+      case "Info":
+        return <InfoWindow />;
     }
+    if (this.state.selectedTab === "Chat") {
+      return <ChatWindow />;
+    } else {
+      return <div />;
+    }
+  };
+
+  render() {
+    // TODO Create two versions of this component (Mobile & Desktop)
+    return (
+      <div className="partyContainer">
+        <div
+          className="partyVideoPlayerContainer"
+          id="videoContainer"
+          ref={videoContainer => (this.videoContainer = videoContainer)}
+        >
+          <VideoPlayer />
+        </div>
+        <div
+          className="tabContentContainer"
+          style={{ height: this.state.contentHeight + "px" }}
+        >
+          {this.getTabContent()}
+        </div>
+
+        <div className="tabNavigator">
+          <div
+            className={"navButton" + this.getTabSelected("Queue")}
+            onClick={this.onTabChange.bind(this, "Queue")}
+          >
+            <Menu color={"#FCFCFD"} />
+          </div>
+          <div
+            className={"navButton" + this.getTabSelected("Chat")}
+            onClick={this.onTabChange.bind(this, "Chat")}
+          >
+            <MessageCircle color={"#FCFCFD"} />
+          </div>
+          <div
+            className={"navButton" + this.getTabSelected("SearchClips")}
+            onClick={this.onTabChange.bind(this, "SearchClips")}
+          >
+            <PlusSquare color={"#FCFCFD"} />
+          </div>
+          <div
+            className={"navButton" + this.getTabSelected("Info")}
+            onClick={this.onTabChange.bind(this, "Info")}
+          >
+            <Info color={"#FCFCFD"} />
+          </div>
+          <div className="navButton">
+            <LogOut />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => ({});
 
 const mapStateToProps = state => {
-    return {
-        socket: state.socket,
-        party: state.party
-    };
+  return {
+    socket: state.socket,
+    party: state.party
+  };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PartyContent);
+export default connect(mapStateToProps, mapDispatchToProps)(PartyContent);

@@ -14,7 +14,6 @@ class Content extends React.Component<any> {
                 ) : (
                     <PartyContent />
                 )}
-                <Footer />
             </div>
         );
     }
