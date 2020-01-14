@@ -8,8 +8,8 @@ import { Plus } from "react-feather";
 
 class Clip extends React.Component<any> {
   getTitle = (title: string) => {
-    if (title.length > 17) {
-      return title.substring(0, 17) + "...";
+    if (title.length > 15) {
+      return title.substring(0, 15) + "...";
     } else {
       return title;
     }
@@ -29,7 +29,7 @@ class Clip extends React.Component<any> {
         }}
       >
         <div className="addButton">
-          <Plus color="#5f5ffc" />
+          <Plus color="#FCFCFD" />
         </div>
         <div
           style={{

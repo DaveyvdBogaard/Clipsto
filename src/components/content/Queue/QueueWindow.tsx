@@ -17,7 +17,7 @@ class QueueWindow extends React.Component<any> {
         </div>
     } else {
       return this.props.queue.map((clip, index) => {
-        return <QueueItem clip={clip} key={index} />;
+        return <QueueItem clip={clip} key={index} index={index} />;
       });
     }
   };

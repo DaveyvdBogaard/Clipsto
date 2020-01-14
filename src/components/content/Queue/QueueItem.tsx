@@ -2,23 +2,51 @@ import * as React from "react";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
 import "../../styles/style.css";
-import { Plus } from "react-feather";
+import { Trash2, Play } from "react-feather";
 
 class QueueItem extends React.Component<any> {
+  getTitle = (title: string) => {
+    if (title.length > 15) {
+      return title.substring(0, 15) + "...";
+    } else {
+      return title;
+    }
+  };
+
   render() {
     return (
       <div className="queueItem">
-        <div>
-            {/* picture with diagonal cut for esthetics */}
+        <div
+          className="queueImg"
+          style={{
+            backgroundImage: `url(${this.props.clip.thumbnail_url})`
+          }}
+        >
+          {/* <p style={{color: "#FCFCFD"}}>{this.props.index}</p> */}
+          {/* picture with diagonal cut for esthetics */}
         </div>
-        <div>
-            {/* name + creator */}
+        <div className="queueInfo">
+          <p
+            style={{
+              textOverflow: "ellipsis",
+              width: "100%",
+              fontSize: "15px",
+              fontWeight: "bold",
+              marginBottom: 0
+            }}
+          >
+            {this.getTitle(this.props.clip.title)}
+          </p>
+          <p style={{marginBottom: 0, fontSize: "12px"}}>
+            {this.props.clip.broadcaster_name}
+          </p>
+          {/* name + creator */}
         </div>
-        <div>
-            {/* added by */}
-        </div>
-        <div>
-            {/* icons: play and remove */}
+        <div className="queueButtons">
+          <div style={{alignSelf: "center", height: "30px", marginRight: "2px"}}><Play color="#FCFCFD" size="30px"/></div>
+          <div style={{alignSelf: "center", height: "30px"}}><Trash2 color="#FCFCFD" size="30px"/></div>
+          
+          {/* icons: play and remove */}
         </div>
       </div>
     );
@@ -34,7 +62,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(QueueItem);
+export default connect(mapStateToProps, mapDispatchToProps)(QueueItem);
