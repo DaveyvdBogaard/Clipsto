@@ -21,7 +21,7 @@ class PartyContent extends React.Component<any> {
 
   componentDidMount() {
     const contentHeight =
-      window.innerHeight - this.videoContainer.clientHeight - 38;
+      window.innerHeight - this.videoContainer.clientHeight - 50;
     this.setState({ contentHeight });
   }
 

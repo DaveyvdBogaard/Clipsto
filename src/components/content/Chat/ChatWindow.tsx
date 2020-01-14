@@ -18,7 +18,7 @@ class ChatWindow extends React.Component<any> {
 
     render() {
         return (
-            <div className="chatContainer">
+            <div>
                 <div className="chatMessagesContainer">
                     {this.loadMessages()}
                 </div>
