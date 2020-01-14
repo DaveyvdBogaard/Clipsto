@@ -8,19 +8,19 @@ import { Plus } from "react-feather";
 
 class Clip extends React.Component<any> {
   getTitle = (title: string) => {
-    if (title.length > 20) {
-      return title.substring(0, 20) + " ...";
+    if (title.length > 17) {
+      return title.substring(0, 17) + "...";
     } else {
       return title;
     }
   };
 
   getViews = (num: number) => {
-    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000)) + 'k' : Math.sign(num)*Math.abs(num)
+    // @ts-ignore
+    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
   }
 
   render() {
-    console.log(this.props.clip);
     return (
       <div
         className="clip"
@@ -38,7 +38,7 @@ class Clip extends React.Component<any> {
             color: "#fcfcfd"
           }}
         >
-          {this.getViews(this.props.clip.view_count)}
+          {this.getViews(this.props.clip.view_count) + ' views'}
         </div>
         <div className="clipInfo">
           <p

@@ -5,14 +5,7 @@ import "../styles/style.css";
 import "../styles/loading.css";
 import VideoPlayer from "./Player/VideoPlayer";
 import ChatWindow from "./Chat/ChatWindow";
-import {
-  Search,
-  Menu,
-  MessageCircle,
-  Info,
-  PlusSquare,
-  LogOut
-} from "react-feather";
+import { Menu, MessageCircle, Info, PlusSquare, LogOut } from "react-feather";
 import "react-tabs/style/react-tabs.css";
 import QueueWindow from "./Queue/QueueWindow";
 import SearchClipsWindow from "./SearchClips/SearchClipsWindow";
@@ -65,13 +58,9 @@ class PartyContent extends React.Component<any> {
   };
 
   render() {
-    // Create two versions of this component (Mobile & Desktop)
+    // TODO Create two versions of this component (Mobile & Desktop)
     return (
       <div className="partyContainer">
-        {/*<div className="partyNavBarContainer">
-                     TODO add leave party button somewhere else 
-                    <Button className='classicButton' style={{height: '30px', width: 'inherit'}}>Leave Party</Button>
-                </div>*/}
         <div
           className="partyVideoPlayerContainer"
           id="videoContainer"
@@ -103,19 +92,13 @@ class PartyContent extends React.Component<any> {
             className={"navButton" + this.getTabSelected("SearchClips")}
             onClick={this.onTabChange.bind(this, "SearchClips")}
           >
-            <PlusSquare color={"#FCFCFD"}/>
+            <PlusSquare color={"#FCFCFD"} />
           </div>
           <div
             className={"navButton" + this.getTabSelected("Info")}
             onClick={this.onTabChange.bind(this, "Info")}
           >
-            {this.getTabSelected("Info") ? (
-              <div>
-                <Info color={"#FCFCFD"} />
-              </div>
-            ) : (
-              <Info color={"#FCFCFD"} />
-            )}
+            <Info color={"#FCFCFD"} />
           </div>
           <div className="navButton">
             <LogOut />
