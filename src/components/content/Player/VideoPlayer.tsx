@@ -5,7 +5,7 @@ import "../../styles/style.css";
 import "../../styles/loading.css";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import ReactPlayer from "react-player";
-import testClip from "../../../shared/data/clip1.mp4";
+import testClip from "../../../shared/data/AT-cm_542255823.mp4";
 import { playPauseClip } from "../../../api/actions";
 import { Button, Icon, Slider } from "antd";
 
